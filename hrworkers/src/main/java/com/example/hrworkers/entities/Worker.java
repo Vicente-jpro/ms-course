@@ -1,5 +1,6 @@
 package com.example.hrworkers.entities;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
@@ -15,7 +16,9 @@ import lombok.Data;
 @Data
 @Entity
 @Table( name = "workers")
-public class Worker {
+public class Worker implements Serializable{
+
+    private static final long serialVersionUID = 1L; 
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
