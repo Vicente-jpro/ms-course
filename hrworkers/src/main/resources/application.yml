@@ -28,6 +28,9 @@ spring:
     allow-circular-references: true
 server:
   port: 8001
+  servlet:
+    context-path: /api
+    
 security:
   jwt:
     expiracao: 30
