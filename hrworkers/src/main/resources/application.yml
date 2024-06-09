@@ -1,12 +1,21 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
 spring:
   application:
     name: hrworkers
-  
   jpa:
     database: POSTGRESQL
     show-sql: true
+    generate-ddl: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  
   sql:
     init:
       platform: postgres
@@ -14,3 +23,13 @@ spring:
       username: postgres
       password: vicente0301
       driverClassName: org.postgresql.Driver
+
+  main:
+    allow-circular-references: true
+server:
+  port: 8001
+security:
+  jwt:
+    expiracao: 30
+    chave-assinatura: 764811743f33067f36d72dd04ce22a27
+

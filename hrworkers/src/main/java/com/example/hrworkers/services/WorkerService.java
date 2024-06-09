@@ -17,5 +17,16 @@ public class WorkerService {
         return workerRepository.save(worker); 
     }
 
+    public Worker atualizar(Worker worker, Long id){
+        return 
+    }
+
+
+    public Worker getIdWorker(Long id){
+
+
+        return 
+    }
+
 
 }
