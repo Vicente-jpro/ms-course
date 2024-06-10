@@ -17,6 +17,7 @@ import com.example.hrworkers.services.WorkerService;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,6 +34,11 @@ public class WorkerController {
     @PatchMapping("/{id_worker}")
     public ResponseEntity<Worker>  atualizar(@RequestBody Worker worker,  @PathVariable("id_worker") Long idWorker){
         return ResponseEntity.ok(this.workerService.atualizar(worker, idWorker));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Worker>> listarTodos(){
+        return ResponseEntity.ok(this.workerService.listarTodos());
     }
 
     @DeleteMapping("/{id_worker}")

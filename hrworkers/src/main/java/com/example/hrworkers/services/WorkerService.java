@@ -1,5 +1,7 @@
 package com.example.hrworkers.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.hrworkers.entities.Worker;
@@ -46,5 +48,8 @@ public class WorkerService {
         return worker;
     }
 
+    public List<Worker> listarTodos(){
+        return this.workerRepository.findAll();
+    }
 
 }
