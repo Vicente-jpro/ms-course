@@ -24,16 +24,16 @@ import java.util.List;
 @RequestMapping("payments")
 public class PaymentController {
 
-    private final PaymentService workerService;
+    private final PaymentService paymentService;
     
     @PostMapping
-    public ResponseEntity<Payment> salvar(@RequestBody Payment worker){
-        return ResponseEntity.ok(workerService.salvar(worker));
+    public ResponseEntity<Payment> salvar(@RequestBody Payment payment){
+        return ResponseEntity.ok(paymentService.salvar(payment));
     }
 
     @GetMapping
     public ResponseEntity<List<Payment>> listarTodos(){
-        return ResponseEntity.ok(this.workerService.listarTodos());
+        return ResponseEntity.ok(this.paymentService.listarTodos());
     }
 
     @DeleteMapping("/{id_worker}")
@@ -45,6 +45,6 @@ public class PaymentController {
     @GetMapping("/{id_worker}/days/{days}")
     public ResponseEntity<Payment> getPaymentByIdWorker(@PathVariable("id_worker") Long idWorker, 
     @PathVariable("days") Integer days){
-        return ResponseEntity.ok(this.workerService.getPaymentByIdWorker(idWorker, days)); 
+        return ResponseEntity.ok(this.paymentService.getPaymentByIdWorker(idWorker, days)); 
     }
 }
