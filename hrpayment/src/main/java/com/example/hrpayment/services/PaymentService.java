@@ -1,13 +1,16 @@
 package com.example.hrpayment.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.hrpayment.clients.WorkerClientResourse;
 import com.example.hrpayment.entities.Payment;
+import com.example.hrpayment.entities.Worker;
 import com.example.hrpayment.exceptions.PaymentNotFoundException;
 import com.example.hrpayment.repositories.PaymentRepository;
-
+import com.example.hrpayment.utils.Calculo;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 public class PaymentService {
     
     private final PaymentRepository paymentRepository;
+    private final WorkerClientResourse workerClientResourse;
+    private final Calculo calculo;
 
     public Payment salvar(Payment payment){
         return paymentRepository.save(payment); 
@@ -25,14 +30,19 @@ public class PaymentService {
 
     public Payment getPaymentByIdWorker(Long idWorker, Integer days){
         log.info("fatching worker with id: {}", idWorker);
+        Worker worker = workerClientResourse.getIdWorker(idWorker).getBody();
 
-        Payment payment = paymentRepository.findPaymentById(idWorker);
-        if (payment == null ){
-            log.info("Worker do not exist: {}", idWorker);
-            throw new PaymentNotFoundException("Worker do not exist: "+ idWorker);
-        }
-
-        return payment;
+        Payment payment = new Payment();
+        payment.setDailyIncome(worker.getDailyIncome());
+        payment.setDays(days);
+        payment.getTotal();
+        payment.setName(worker.getName());
+        BigDecimal day = BigDecimal.valueOf( Double.parseDouble(""+days));
+        BigDecimal total = worker.getDailyIncome().multiply(day);
+        
+        payment.setTotal(total);
+        return salvar(payment);
+    
     }
 
     public List<Payment> listarTodos(){
