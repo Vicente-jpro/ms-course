@@ -31,11 +31,6 @@ public class PaymentController {
         return ResponseEntity.ok(workerService.salvar(worker));
     }
 
-    @PatchMapping("/{id_worker}")
-    public ResponseEntity<Payment>  atualizar(@RequestBody Payment worker,  @PathVariable("id_worker") Long idWorker){
-        return ResponseEntity.ok(this.workerService.atualizar(worker, idWorker));
-    }
-
     @GetMapping
     public ResponseEntity<List<Payment>> listarTodos(){
         return ResponseEntity.ok(this.workerService.listarTodos());
@@ -47,8 +42,9 @@ public class PaymentController {
         this.eliminar(idWorker);
     }
 
-    @GetMapping("/{id_worker}")
-    public ResponseEntity<Payment> getIdWorker(@PathVariable("id_worker") Long idWorker){
-        return ResponseEntity.ok(this.workerService.getIdWorker(idWorker)); 
+    @GetMapping("/{id_worker}/days/{days}")
+    public ResponseEntity<Payment> getPaymentByIdWorker(@PathVariable("id_worker") Long idWorker, 
+    @PathVariable("days") Integer days){
+        return ResponseEntity.ok(this.workerService.getPaymentByIdWorker(idWorker, days)); 
     }
 }

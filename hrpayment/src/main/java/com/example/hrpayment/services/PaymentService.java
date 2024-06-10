@@ -23,27 +23,13 @@ public class PaymentService {
         return paymentRepository.save(payment); 
     }
 
-    public Payment atualizar(Payment payment, Long idWorker){
-        Payment paymentSaved = getIdWorker(idWorker);
+    public Payment getPaymentByIdWorker(Long idWorker, Integer days){
+        log.info("fatching worker with id: {}", idWorker);
 
-        payment.setId(paymentSaved.getId());
-        return this.paymentRepository.save(payment); 
-    }
-
-    public void eliminar(Long idPayment){
-        log.info("fatching worker with id: {}", idPayment);
-
-        Payment paym = getIdWorker(idPayment);
-        this.paymentRepository.deleteById(paym.getId());
-    }
-
-    public Payment getIdWorker(Long idPayment){
-        log.info("fatching worker with id: {}", idPayment);
-
-        Payment payment = paymentRepository.findPaymentById(idPayment);
+        Payment payment = paymentRepository.findPaymentById(idWorker);
         if (payment == null ){
-            log.info("Worker do not exist: {}", idPayment);
-            throw new PaymentNotFoundException("Worker do not exist: "+ idPayment);
+            log.info("Worker do not exist: {}", idWorker);
+            throw new PaymentNotFoundException("Worker do not exist: "+ idWorker);
         }
 
         return payment;

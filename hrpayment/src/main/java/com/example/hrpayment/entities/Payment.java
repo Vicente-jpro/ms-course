@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table( name = "workers")
+@Table( name = "payments")
 public class Payment implements Serializable{
 
     private static final long serialVersionUID = 1L; 
@@ -31,7 +31,7 @@ public class Payment implements Serializable{
     private BigDecimal dailyIncome;
 
     @Column( name = "days")
-    private BigDecimal days;
+    private Integer days;
 
     @Column( name = "total")
     private BigDecimal total;
