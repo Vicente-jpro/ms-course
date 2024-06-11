@@ -29,7 +29,7 @@ public class PaymentService {
     }
 
     public Payment getPaymentByIdWorker(Long idWorker, Integer days){
-        log.info("fatching worker with id: {}", idWorker);
+        log.info("Saving payment with worker id: {}", idWorker);
         Worker worker = workerClientResourse.getIdWorker(idWorker).getBody();
 
         Payment payment = new Payment();

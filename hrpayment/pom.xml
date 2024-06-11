@@ -42,6 +42,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+<!--Balanceamento de carga -->
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		<version>2.2.8.RELEASE</version>
+	</dependency>
+
 
 
 		<dependency>

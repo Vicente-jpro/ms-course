@@ -1,5 +1,6 @@
 package com.example.hrworkers.controllers;
 
+import org.hibernate.cfg.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,15 +17,18 @@ import com.example.hrworkers.entities.Worker;
 import com.example.hrworkers.services.WorkerService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("workers")
 public class WorkerController {
 
     private final WorkerService workerService;
+
     
     @PostMapping
     public ResponseEntity<Worker> salvar(@RequestBody Worker worker){
@@ -49,6 +53,7 @@ public class WorkerController {
 
     @GetMapping("/{id_worker}")
     public ResponseEntity<Worker> getIdWorker(@PathVariable("id_worker") Long idWorker){
+   
         return ResponseEntity.ok(this.workerService.getIdWorker(idWorker)); 
     }
 }
