@@ -22,7 +22,6 @@ public class PaymentService {
     
     private final PaymentRepository paymentRepository;
     private final WorkerClientResourse workerClientResourse;
-    private final Calculo calculo;
 
     public Payment salvar(Payment payment){
         return paymentRepository.save(payment); 
