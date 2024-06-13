@@ -47,4 +47,12 @@ public class PaymentController {
     @PathVariable("days") Integer days){
         return ResponseEntity.ok(this.paymentService.getPaymentByIdWorker(idWorker, days)); 
     }
+
+    @GetMapping("/hello")
+    public String hello(){
+        String a = "A";
+        return paymentService.hello();
+    }
+
+
 }

@@ -27,6 +27,10 @@ public class PaymentService {
         return paymentRepository.save(payment); 
     }
 
+    public String hello(){
+        return workerClientResourse.hello();
+    }
+
     public Payment getPaymentByIdWorker(Long idWorker, Integer days){
         log.info("Saving payment with worker id: {}", idWorker);
         Worker worker = workerClientResourse.getIdWorker(idWorker).getBody();

@@ -29,6 +29,11 @@ public class WorkerController {
 
     private final WorkerService workerService;
 
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello from workers controller";
+    }
     
     @PostMapping
     public ResponseEntity<Worker> salvar(@RequestBody Worker worker){
@@ -39,6 +44,7 @@ public class WorkerController {
     public ResponseEntity<Worker>  atualizar(@RequestBody Worker worker,  @PathVariable("id_worker") Long idWorker){
         return ResponseEntity.ok(this.workerService.atualizar(worker, idWorker));
     }
+
 
     @GetMapping
     public ResponseEntity<List<Worker>> listarTodos(){
