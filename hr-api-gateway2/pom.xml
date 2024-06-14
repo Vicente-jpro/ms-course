@@ -9,29 +9,27 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>hr-api-gatway-zuul</artifactId>
+	<artifactId>hr-api-gateway2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hr-api-gatway-zuul</name>
-	<description>Demo project for Spring Boot</description>
+	<name>hr-api-gateway2</name>
+	<description>API for route all microservices</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.7</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-			<version>2.2.8.RELEASE</version>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

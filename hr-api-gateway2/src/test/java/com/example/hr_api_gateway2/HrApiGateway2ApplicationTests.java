@@ -1,10 +1,10 @@
-package com.example.hrapigatwayzuul;
+package com.example.hr_api_gateway2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HrApiGatwayZuulApplicationTests {
+class HrApiGateway2ApplicationTests {
 
 	@Test
 	void contextLoads() {
