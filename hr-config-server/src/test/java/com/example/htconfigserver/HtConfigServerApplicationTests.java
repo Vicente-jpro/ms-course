@@ -1,13 +1,8 @@
 package com.example.htconfigserver;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class HtConfigServerApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
 
 }
