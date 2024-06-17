@@ -1,7 +1,5 @@
 package com.example.hrusers.services;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.example.hrusers.entities.User;
@@ -37,6 +35,19 @@ public class UserService {
     }
 
     public User getIdWorker(Long idUser){
+        log.info("fatching worker with id: {}", idUser);
+
+        User worker = userRepository.findUserById(idUser);
+        if (worker == null ){
+            log.info("Worker do not exist: {}", idUser);
+            throw new UserNotFoundException("Worker do not exist: "+ idUser);
+        }
+
+        return worker;
+    }
+
+
+    public User (Long idUser){
         log.info("fatching worker with id: {}", idUser);
 
         User worker = userRepository.findUserById(idUser);

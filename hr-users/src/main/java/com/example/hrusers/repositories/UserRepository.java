@@ -10,4 +10,5 @@ import com.example.hrusers.entities.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 
  User findUserById(Long id);
+ User findByEmail(String email);
 }
