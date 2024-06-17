@@ -21,7 +21,7 @@ public class UserService {
     }
 
     public User atualizar(User user, Long idUser){
-        User us = getIdWorker(idUser);
+        User us = findUserById(idUser);
 
         us.setId(us.getId());
         return this.userRepository.save(user); 
@@ -30,17 +30,17 @@ public class UserService {
     public void eliminar(Long idUser){
         log.info("fatching user with id: {}", idUser);
 
-        User worker = getIdWorker(idUser);
+        User worker = findUserById(idUser);
         this.userRepository.deleteById(worker.getId());
     }
 
-    public User getIdWorker(Long idUser){
-        log.info("fatching worker with id: {}", idUser);
+    public User findUserById(Long idUser){
+        log.info("fatching user with id: {}", idUser);
 
         User worker = userRepository.findUserById(idUser);
         if (worker == null ){
-            log.info("Worker do not exist: {}", idUser);
-            throw new UserNotFoundException("Worker do not exist: "+ idUser);
+            log.info("User do not exist: {}", idUser);
+            throw new UserNotFoundException("User do not exist: "+ idUser);
         }
 
         return worker;
@@ -51,8 +51,8 @@ public class UserService {
 
         User user = userRepository.findByEmail(email);
         if (user == null ){
-            log.info("Worker do not exist: {}", email);
-            throw new UserNotFoundException("Worker do not exist: "+ email);
+            log.info("User do not exist: {}", email);
+            throw new UserNotFoundException("User do not exist: "+ email);
         }
 
         return user;
