@@ -47,17 +47,5 @@ public class UserService {
     }
 
 
-    public User (Long idUser){
-        log.info("fatching worker with id: {}", idUser);
-
-        User worker = userRepository.findUserById(idUser);
-        if (worker == null ){
-            log.info("Worker do not exist: {}", idUser);
-            throw new UserNotFoundException("Worker do not exist: "+ idUser);
-        }
-
-        return worker;
-    }
-
 
 }

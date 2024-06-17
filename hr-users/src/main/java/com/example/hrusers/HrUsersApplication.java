@@ -23,8 +23,7 @@ public class HrUsersApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		 log.info("PASSWORD: 123456 CRYPTED: {}", 
-		 passwordEncoder.encode("12345678"));
+	//	 log.info("PASSWORD: 123456 CRYPTED: {}",  passwordEncoder.encode("12345678"));
 	}
 
 }
