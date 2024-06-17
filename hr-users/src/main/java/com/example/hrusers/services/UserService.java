@@ -46,6 +46,18 @@ public class UserService {
         return worker;
     }
 
+    public User findByEmail(String email){
+        log.info("fatching user with email: {}", email);
+
+        User user = userRepository.findByEmail(email);
+        if (user == null ){
+            log.info("Worker do not exist: {}", email);
+            throw new UserNotFoundException("Worker do not exist: "+ email);
+        }
+
+        return user;
+    }
+
 
 
 }
