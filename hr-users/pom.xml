@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>hruser</artifactId>
+	<artifactId>hr-users</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hruser</name>
+	<name>hr-users</name>
 	<description>Microservice of users</description>
 	<properties>
 		<java.version>11</java.version>

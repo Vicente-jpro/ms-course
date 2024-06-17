@@ -1,4 +1,4 @@
-package com.example.hruser.controllers;
+package com.example.hrusers.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
