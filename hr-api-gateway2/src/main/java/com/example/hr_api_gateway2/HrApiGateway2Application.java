@@ -24,7 +24,7 @@ public class HrApiGateway2Application {
 					.route(r -> r.path("/workers/**").uri("lb://hrworkers"))
 					.route(r -> r.path("/payments/**").uri("lb://hrpayment"))
 					.route(r -> r.path("/users/**").uri("lb://hrusers"))
+					.route(r -> r.path("/oauth/**").uri("lb://hr-oauth")) 
 				.build();
 	}
 }
-

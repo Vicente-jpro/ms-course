@@ -7,11 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @EnableEurekaClient
 @SpringBootApplication
+//@EnableFeignClients(basePackages = "com.example.hrusers.clients")
 public class HrUsersApplication implements CommandLineRunner{
 
 	@Autowired

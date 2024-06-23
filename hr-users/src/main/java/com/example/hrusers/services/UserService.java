@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserService {
     
     private final UserRepository userRepository;
-
+ 
     public User salvar(User user){
         return userRepository.save(user); 
     }

@@ -1,4 +1,4 @@
-package com.example.hrusers.controllers;
+package com.example.hroauth.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,26 +7,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.hrusers.entities.User;
-import com.example.hrusers.services.UserService;
+import com.example.hroauth.entities.User;
+import com.example.hroauth.services.OauthService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("users")
-public class UserController {
+@RequestMapping("/oauth")
+public class OauthController {
     
-    private final UserService userService;
+    private final OauthService oauthService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> findById(@PathVariable("id") Long id){
-        return ResponseEntity.ok( userService.findUserById(id));
+   
+        return ResponseEntity.ok( oauthService.findUserById(id));
     }
 
-    @GetMapping("/search")
+    @GetMapping("/users/search")
     public ResponseEntity<User> findByEmail(@RequestParam("email") String email){
-        return ResponseEntity.ok( userService.findByEmail(email));
+        return ResponseEntity.ok( oauthService.findByEmail(email));
+    }
+
+    @GetMapping
+    public String hello(){
+        return "Hello from now oauthController";
     }
 
 }
